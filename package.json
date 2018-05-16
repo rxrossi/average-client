@@ -50,15 +50,13 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
+    "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
+    "setupFiles": ["<rootDir>/config/polyfills.js"],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
@@ -68,11 +66,10 @@
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)":
+        "<rootDir>/config/jest/fileTransform.js"
     },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
-    ],
+    "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
@@ -87,15 +84,16 @@
     ]
   },
   "babel": {
-    "presets": [
-      "flow",
-      "react-app"
-    ]
+    "presets": ["flow", "react-app"]
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "devDependencies": {
-    "flow-bin": "^0.72.0"
+    "flow-bin": "^0.72.0",
+    "@storybook/react": "^3.4.4",
+    "@storybook/addon-actions": "^3.4.4",
+    "@storybook/addon-links": "^3.4.4",
+    "@storybook/addons": "^3.4.4"
   }
 }
