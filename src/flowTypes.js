@@ -12,12 +12,12 @@ export type user = {
 }
 
 export type article = {
-  author: author,
-  published: boolean,
-  creationDate: Date,
-  tags: Array<string>,
-  content: string,
-  mainImg: string,
-  title: string,
-  description: string
+  author: ?user,
+  published: ?boolean,
+  creationDate: ?Date,
+  tags: ?Array<string>,
+  content: ?string,
+  mainImg: ?string,
+  title: ?string,
+  description: ?string
 }

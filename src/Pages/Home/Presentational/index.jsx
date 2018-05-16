@@ -2,9 +2,10 @@
 import React from 'react'
 import NavBar from '../../../NavBar'
 import List from '../../../SharedReactComponents/ListOfArticleCard'
+import * as types from '../../../flowTypes'
 
 type Props = {
-  articles: Array<{}>
+  articles: Array<types.article>
 }
 
 const Home = (props: Props) => (

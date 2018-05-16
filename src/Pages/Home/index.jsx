@@ -2,11 +2,12 @@
 import React from 'react'
 import Presentational from './Presentational'
 import { getAll } from '../../API/articles'
+import * as types from '../../flowTypes'
 
 type Props = {}
 
 type State = {
-  articles: Array<{}>
+  articles: Array<types.article>
 }
 
 class Home extends React.Component<Props, State> {
