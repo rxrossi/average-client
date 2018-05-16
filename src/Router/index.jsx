@@ -1,16 +1,17 @@
 import React from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import Home from '../Pages/Home'
+import Test from '../Pages/Test'
 // import RequiredSignInRoute from './RequireSignInRoute'
 // import RequiredSignOutRoute from './RequireSignOutRoute'
 
-const Home = () => <p>Home</p>
-
-const Test = () => <p>Test</p>
+/*
+  move the NavBar outside, inject in each route
+  replace with the client2 navbar
+*/
 
 const Router = () => (
   <div>
-    <Link to="/">Home</Link>
-    <Link to="/test">Test</Link>
     <Route exact path="/" component={Home} />
     <Route exact path="/test" component={Test} />
   </div>

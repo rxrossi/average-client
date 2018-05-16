@@ -13,11 +13,4 @@ class App extends Component<{}> {
   }
 }
 
-/*
-  - Router
-  -- Home
-  -- Login
-  --
-*/
-
 export default App
