@@ -27,7 +27,7 @@ class UserMenu extends React.Component<Props, State> {
 
   render() {
     return (
-      <Wrapper handleClickOutside={this.close}>
+      <Wrapper handleClickOutside={this.close} handleClickInside={() => {}}>
         <MainBtn onClick={this.toggleOpen}>U</MainBtn>
         {this.state.open && (
           <DropDown>

@@ -18,12 +18,9 @@ class Home extends React.Component<Props, State> {
   async componentDidMount() {
     const { response } = await getAll()
     if (response) {
-      this.setState(
-        {
-          articles: response.articles
-        },
-        () => console.log(this.state.articles)
-      )
+      this.setState({
+        articles: response.articles
+      })
     }
   }
 

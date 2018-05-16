@@ -1,18 +1,18 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import Home from '../Pages/Home'
-import Test from '../Pages/Test'
 import RequiredSignInRoute from './RequireSignInRoute'
 import RequiredSignOutRoute from './RequireSignOutRoute'
 import SignIn from '../Pages/SignIn'
 import SignOut from '../Pages/SignOut'
 import SignUp from '../Pages/SignUp'
 import UserProfile from '../Pages/UserProfile'
+import Article from '../Pages/Article'
 
 const Router = props => (
   <div>
     <Route exact path="/" component={Home} />
-    <Route exact path="/test" component={Test} />
+    <Route path="/article/:link?" component={Article} />
     <RequiredSignOutRoute
       authenticated={props.authToken}
       path="/signin"

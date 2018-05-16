@@ -8,6 +8,7 @@ Priority: [H, M , L]
 # Todo
 
 * Client - L - Covert ArticleCard and ListOfArticleCard to styledComponents
+* Client - L - Remove SharedReactComponents DraftJSComponent (the creation is a mistake, can't delete because somehow it is in use)
 
 # Done
 
