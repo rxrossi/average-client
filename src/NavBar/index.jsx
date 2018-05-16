@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import UserMenu from './UserMenu'
-import { blue, white } from '../colors'
+import { grey, blue, white } from '../colors'
 import BaseLink from '../StyledComponents/BaseLink'
 
 type Props = {
@@ -22,8 +22,14 @@ export default NavBar
 
 const HomeLink = styled(BaseLink)`
   font-weight: bolder;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  text-align: center;
   color: ${blue};
+
+  &:hover {
+    color: ${grey}
+    border-radius: 2px;
+  }
 `
 
 const Nav = styled.nav`

@@ -4,15 +4,10 @@ import Home from '../Pages/Home'
 import Test from '../Pages/Test'
 import RequiredSignInRoute from './RequireSignInRoute'
 import RequiredSignOutRoute from './RequireSignOutRoute'
-
-/*
-  move the NavBar outside, inject in each route
-  replace with the client2 navbar
-*/
-
-const SignIn = () => <div>SignIn</div>
-const SignOut = () => <div>SignOut</div>
-const UserProfile = () => <div>UserProfile</div>
+import SignIn from '../Pages/SignIn'
+import SignOut from '../Pages/SignOut'
+import SignUp from '../Pages/SignUp'
+import UserProfile from '../Pages/UserProfile'
 
 const Router = props => (
   <div>
@@ -22,6 +17,11 @@ const Router = props => (
       authenticated={props.authToken}
       path="/signin"
       component={SignIn}
+    />
+    <RequiredSignOutRoute
+      authenticated={props.authToken}
+      path="/signup"
+      component={SignUp}
     />
     <RequiredSignInRoute
       authenticated={props.authToken}
