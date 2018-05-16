@@ -1,0 +1,20 @@
+import React from 'react'
+import { Route } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+
+export default ({ component: Component, authenticated, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      ((!authenticated) ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: '/',
+          }}
+        />
+      ))
+    }
+  />
+)
