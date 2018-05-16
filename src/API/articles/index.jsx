@@ -8,5 +8,15 @@ export async function getAll() {
 }
 
 export async function getByLink(link) {
-  return fetch(API_ADDRESS + `/articles/${link}`).then(getJson)
+  return fetch(API_ADDRESS + `/articles/${link}`)
+    .then(getJson)
+    .catch(catcher)
+}
+
+function catcher(e) {
+  return {
+    error: {
+      message: `An error ocurried (${e})`
+    }
+  }
 }

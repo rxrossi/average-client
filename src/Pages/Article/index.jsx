@@ -1,6 +1,9 @@
 import React from 'react'
 import Presentational from './Presentational'
+import Loading from './Presentational/loading'
 import { getByLink } from '../../API/articles'
+
+// TODO: extract loading
 
 class Article extends React.Component {
   state = {
@@ -17,10 +20,9 @@ class Article extends React.Component {
     })
   }
 
-  // TODO: implement a loading!?
   render() {
     if (this.state.loading) {
-      return <div>loading</div>
+      return <Loading />
     }
     return <Presentational article={this.state.article} />
   }
