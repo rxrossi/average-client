@@ -9,7 +9,7 @@ function removeEventListeners(fn: Function) {
 
 type Props = {
   handleClickOutside: Function,
-  handleClickInside: Function
+  handleClickInside: ?Function
 }
 
 export default class HandleClickOutsideComponent extends React.Component<
