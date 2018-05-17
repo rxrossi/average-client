@@ -2,12 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Button = styled.button``
-const Wrapper = styled.div``
+const Wrapper = styled.form``
 const ErrorFeedBack = styled.p``
 const CInput = styled.input``
 
 export default ({ handleChange, handleSubmit, fields, errors }) => (
-  <Wrapper handleSubmit={handleSubmit}>
+  <Wrapper
+    onSubmit={e => {
+      e.preventDefault()
+      handleSubmit()
+    }}
+  >
     <CInput
       label="Email"
       name="email"
@@ -32,6 +37,7 @@ export default ({ handleChange, handleSubmit, fields, errors }) => (
       error={errors.fields && errors.fields.confirmPassword}
       handleChange={handleChange}
     />
+
     {errors.message && <ErrorFeedBack message={errors.message} />}
     <Button type="submit">Sign Up</Button>
   </Wrapper>

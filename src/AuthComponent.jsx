@@ -14,12 +14,13 @@ export default class Auth extends React.Component {
   }
 
   handleAuthSignUp = values => {
+    console.log('signUp')
     console.log(values)
     this.setState({ authenticated: true })
   }
 
-  handleAuthSignOut = values => {
-    console.log(values)
+  handleAuthSignOut = () => {
+    console.log('signOut')
     this.setState({ authenticated: false })
   }
 
