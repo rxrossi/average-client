@@ -3,7 +3,9 @@ Priority: [H, M , L]
 
 # Doing
 
-* Client - H - Implement /article/read
+* Client - H - Implement Wrapper to handle auth
+* Client - H - Implement SignIn Component
+* Client - H - Implement SignUp Component
 
 # Todo
 
@@ -12,4 +14,5 @@ Priority: [H, M , L]
 
 # Done
 
+* Client - H - Implement /article/read
 * Client - M - create a flowtype of Article and User

@@ -3,7 +3,8 @@ import Presentational from './Presentational'
 import Loading from './Presentational/loading'
 import { getByLink } from '../../API/articles'
 
-// TODO: extract loading
+// TODO: Add flow
+// TODO: make sure if is possible to get the article from the react-router-dom Link
 
 class Article extends React.Component {
   state = {

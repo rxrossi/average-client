@@ -3,22 +3,29 @@ import styled from 'styled-components'
 import UserMenu from './UserMenu'
 import { grey, blue, white } from '../colors'
 import BaseLink from '../StyledComponents/BaseLink'
+import { AuthContext } from '../AuthComponent'
 
 type Props = {
   children: React.ComponentType<{}>
 }
 
-const NavBar = ({ children }: Props) => (
+const NavBar = ({ children, authenticated }: Props) => (
   <Nav>
     <HomeLink to="/">Average</HomeLink>
     <ItemAlignRight>{children}</ItemAlignRight>
     <ItemAlignRight>
-      <UserMenu />
+      <UserMenu authenticated={authenticated} />
     </ItemAlignRight>
   </Nav>
 )
 
-export default NavBar
+export default () => (
+  <AuthContext.Consumer>
+    {({ authenticated, children }) => (
+      <NavBar authenticated={authenticated}>{children}</NavBar>
+    )}
+  </AuthContext.Consumer>
+)
 
 const HomeLink = styled(BaseLink)`
   font-weight: bolder;

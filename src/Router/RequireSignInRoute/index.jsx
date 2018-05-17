@@ -6,16 +6,16 @@ export default ({ component: Component, authenticated, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      (authenticated ? (
-        <Component {...props} />
+      authenticated ? (
+        <Component authenticated={authenticated} {...props} />
       ) : (
         <Redirect
           to={{
             pathname: '/signin',
-            state: { from: props.location },
+            state: { from: props.location }
           }}
         />
-      ))
+      )
     }
   />
 )
