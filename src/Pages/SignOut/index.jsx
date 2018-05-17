@@ -1,10 +1,16 @@
 import React from 'react'
 import NavBar from '../../NavBar'
+import { AuthContext } from '../../AuthComponent'
 
-const Home = () => (
+const SignOut = ({ handleSignOut }) => (
   <div>
     <NavBar />
-    Sign Out
+    <button onClick={handleSignOut}>Sign out</button>
   </div>
 )
-export default Home
+
+export default () => (
+  <AuthContext.Consumer>
+    {({ signOut }) => <SignOut handleSignOut={signOut} />}
+  </AuthContext.Consumer>
+)
