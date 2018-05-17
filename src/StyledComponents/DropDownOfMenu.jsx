@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { grey, white } from '../colors'
 
 const DropDown = styled.div`
+  z-index: 2;
   text-align: left;
   background: ${grey};
   color: ${white};

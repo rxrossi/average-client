@@ -1,10 +1,13 @@
 import React from 'react'
-import NavBar from '../../NavBar'
+import Presentational from './Presentational'
+import { AuthContext } from '../../AuthComponent'
 
-const Home = () => (
-  <div>
-    <NavBar />
-    SignIn
-  </div>
+const SignIn = ({ handleSubmit }) => (
+  <Presentational handleSubmit={handleSubmit} />
 )
-export default Home
+
+export default () => (
+  <AuthContext.Consumer>
+    {({ signIn }) => <SignIn handleSubmit={signIn} />}
+  </AuthContext.Consumer>
+)

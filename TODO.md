@@ -3,12 +3,12 @@ Priority: [H, M , L]
 
 # Doing
 
-* Client - H - Implement Wrapper to handle auth
 * Client - H - Implement SignIn Component
 * Client - H - Implement SignUp Component
 
 # Todo
 
+* Client - H - Implement Wrapper to handle auth
 * Client - L - Covert ArticleCard and ListOfArticleCard to styledComponents
 * Client - L - Remove SharedReactComponents DraftJSComponent (the creation is a mistake, can't delete because somehow it is in use)
 

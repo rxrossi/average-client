@@ -1,10 +1,5 @@
 import React from 'react'
-import NavBar from '../../NavBar'
+import Presentational from './Presentational'
 
-const Home = () => (
-  <div>
-    <NavBar />
-    Sign Up
-  </div>
-)
-export default Home
+const SignUp = () => <Presentational />
+export default SignUp

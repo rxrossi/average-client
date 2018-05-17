@@ -8,32 +8,40 @@ import SignOut from '../Pages/SignOut'
 import SignUp from '../Pages/SignUp'
 import UserProfile from '../Pages/UserProfile'
 import Article from '../Pages/Article'
+import { AuthContext } from '../AuthComponent'
 
+// TODO: add flow
 const Router = props => (
   <div>
     <Route exact path="/" component={Home} />
     <Route path="/article/:link?" component={Article} />
     <RequiredSignOutRoute
-      authenticated={props.authToken}
+      authenticated={props.authenticated}
       path="/signin"
       component={SignIn}
     />
     <RequiredSignOutRoute
-      authenticated={props.authToken}
+      authenticated={props.authenticated}
       path="/signup"
       component={SignUp}
     />
     <RequiredSignInRoute
-      authenticated={props.authToken}
+      authenticated={props.authenticated}
       path="/profile"
       component={UserProfile}
     />
     <RequiredSignInRoute
-      authenticated={props.authToken}
+      authenticated={props.authenticated}
       path="/signout"
       component={SignOut}
     />
   </div>
 )
 
-export default Router
+// export default Router
+
+export default props => (
+  <AuthContext.Consumer>
+    {({ authenticated }) => <Router authenticated={authenticated} />}
+  </AuthContext.Consumer>
+)
