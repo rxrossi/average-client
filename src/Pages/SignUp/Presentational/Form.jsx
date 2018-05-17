@@ -7,35 +7,31 @@ const ErrorFeedBack = styled.p``
 const CInput = styled.input``
 
 export default ({ handleChange, handleSubmit, fields, errors }) => (
-  <Wrapper
-    onSubmit={e => {
-      e.preventDefault()
-      handleSubmit()
-    }}
-  >
+  <Wrapper onSubmit={handleSubmit}>
     <CInput
       label="Email"
       name="email"
       type="email"
-      value={fields.email || ''}
+      defaultValue={fields.email || ''}
       error={errors.fields && errors.fields.email}
-      handleChange={handleChange}
+      onChange={handleChange}
     />
     <CInput
       label="Password"
       name="password"
       type="password"
-      value={fields.password || ''}
+      defaultValue={fields.password || ''}
       error={errors.fields && errors.fields.password}
-      handleChange={handleChange}
+      onChange={handleChange}
     />
+
     <CInput
       label="Confirm Password"
       name="confirmPassword"
       type="password"
-      value={fields.confirmPassword || ''}
+      defaultValue={fields.confirmPassword || ''}
       error={errors.fields && errors.fields.confirmPassword}
-      handleChange={handleChange}
+      onChange={handleChange}
     />
 
     {errors.message && <ErrorFeedBack message={errors.message} />}

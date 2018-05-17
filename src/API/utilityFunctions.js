@@ -10,3 +10,11 @@ export async function getJson(res) {
   }
   return resp
 }
+
+export function catcher(e) {
+  return {
+    error: {
+      message: `An error ocurried (${e})`
+    }
+  }
+}

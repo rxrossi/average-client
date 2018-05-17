@@ -5,7 +5,11 @@ import { white, softBlue } from '../../../colors'
 import Wrapper from '../../../UtilityComponents/HandleClickOutside'
 import DropDownBase from '../../../StyledComponents/DropDownOfMenu'
 import BaseLink from '../../../StyledComponents/BaseLink'
-type Props = {}
+import { AuthContext } from '../../../AuthComponent'
+
+type Props = {
+  removeUserAndToken: Function
+}
 
 type State = {
   open: boolean
@@ -36,7 +40,9 @@ class UserMenu extends React.Component<Props, State> {
                 <Link to="/profile">Edit Profile</Link>
               </li>
               <li>
-                <Link to="/signout">Sign Out</Link>
+                <button onClick={this.props.removeUserAndToken}>
+                  Sign out
+                </button>
               </li>
             </ul>
           </DropDown>
@@ -46,7 +52,13 @@ class UserMenu extends React.Component<Props, State> {
   }
 }
 
-export default UserMenu
+export default () => (
+  <AuthContext.Consumer>
+    {({ removeUserAndToken }) => (
+      <UserMenu removeUserAndToken={removeUserAndToken} />
+    )}
+  </AuthContext.Consumer>
+)
 
 const DropDown = styled(DropDownBase)`
   & > ul {

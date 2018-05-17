@@ -7,32 +7,29 @@ export default class Auth extends React.Component {
     authenticated: false
   }
 
-  handleAuthSignIn = values => {
-    console.log('signIn')
-    console.log(values)
-    this.setState({ authenticated: true })
+  storeUserAndToken = ({ user, token }) => {
+    this.setState({ authenticated: true, user, token }, () =>
+      console.log(this.state)
+    )
   }
 
-  handleAuthSignUp = values => {
-    console.log('signUp')
-    console.log(values)
-    this.setState({ authenticated: true })
-  }
-
-  handleAuthSignOut = () => {
-    console.log('signOut')
-    this.setState({ authenticated: false })
+  removeUserAndToken = () => {
+    this.setState(
+      { authenticated: false, user: undefined, token: undefined },
+      () => console.log(this.state)
+    )
   }
 
   render() {
-    const { authenticated } = this.state
+    const { authenticated, user, token } = this.state
     return (
       <AuthContext.Provider
         value={{
           authenticated,
-          signIn: this.handleAuthSignIn,
-          signUp: this.handleAuthSignUp,
-          signOut: this.handleAuthSignOut
+          user,
+          token,
+          storeUserAndToken: this.storeUserAndToken,
+          removeUserAndToken: this.removeUserAndToken
         }}
       >
         {this.props.children}

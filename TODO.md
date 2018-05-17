@@ -4,6 +4,7 @@ Priority: [H, M , L]
 # Doing
 
 * Client - H - Implement Wrapper Component to handle auth
+* Client - H - Make sure SignIn and SignOut sens the values correctly to AuthComponent
 
 # Todo
 
