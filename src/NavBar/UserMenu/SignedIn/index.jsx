@@ -40,6 +40,9 @@ class UserMenu extends React.Component<Props, State> {
                 <Link to="/profile">Edit Profile</Link>
               </li>
               <li>
+                <Link to="/myarticles">My articles</Link>
+              </li>
+              <li>
                 <button onClick={this.props.removeUserAndToken}>
                   Sign out
                 </button>

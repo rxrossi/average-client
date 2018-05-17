@@ -8,6 +8,7 @@ import SignOut from '../Pages/SignOut'
 import SignUp from '../Pages/SignUp'
 import UserProfile from '../Pages/UserProfile'
 import Article from '../Pages/Article'
+import MyArticles from '../Pages/MyArticles'
 import { AuthContext } from '../AuthComponent'
 
 // TODO: add flow
@@ -29,6 +30,11 @@ const Router = props => (
       authenticated={props.authenticated}
       path="/profile"
       component={UserProfile}
+    />
+    <RequiredSignInRoute
+      authenticated={props.authenticated}
+      path="/myarticles"
+      component={MyArticles}
     />
     <RequiredSignInRoute
       authenticated={props.authenticated}

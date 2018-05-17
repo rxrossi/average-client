@@ -18,3 +18,11 @@ export function catcher(e) {
     }
   }
 }
+
+export function getToken() {
+  try {
+    return localStorage.getItem('token')
+  } catch (e) {
+    console.log("Can't get token from localStorage")
+  }
+}
