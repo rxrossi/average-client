@@ -23,6 +23,11 @@ export default class Auth extends React.Component {
     localStorage.setItem('token', JSON.stringify(token))
   }
 
+  storeUser = ({ user, token }) => {
+    this.setState({ user })
+    localStorage.setItem('user', JSON.stringify(user))
+  }
+
   removeUserAndToken = () => {
     this.setState({ authenticated: false, user: undefined, token: undefined })
     localStorage.removeItem('user')
@@ -37,6 +42,7 @@ export default class Auth extends React.Component {
           authenticated,
           user,
           token,
+          storeUser: this.storeUser,
           storeUserAndToken: this.storeUserAndToken,
           removeUserAndToken: this.removeUserAndToken
         }}
