@@ -31,6 +31,13 @@ export default function FieldsControllerHOC(Component) {
       }
     }
 
+    static getDerivedStateFromProps(nextProps, state) {
+      return {
+        fields: nextProps.fields || {},
+        errors: nextProps.errors || { fields: {} }
+      }
+    }
+
     async handleChange(e) {
       const { name, value, files } = e.target
       let imgUrl
