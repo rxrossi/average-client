@@ -1,10 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import { getJson, catcher } from '../utilityFunctions'
 
-function getToken() {
-  return ' '
-}
-
 const { API_ADDRESS } = require('../../config')
 
 const headers = {
@@ -33,27 +29,6 @@ export function signUp({ email, password, confirmPassword } = {}) {
       email,
       password,
       confirmPassword
-    })
-  })
-    .then(getJson)
-    .catch(catcher)
-}
-
-export async function patchUser({ name, photoPathOnServer }) {
-  const photoLocation = {
-    server: 'this',
-    path: photoPathOnServer
-  }
-
-  return fetch(API_ADDRESS + '/users', {
-    headers: {
-      ...headers,
-      authorization: getToken()
-    },
-    method: 'PATCH',
-    body: JSON.stringify({
-      name,
-      photoLocation: photoPathOnServer && photoLocation
     })
   })
     .then(getJson)

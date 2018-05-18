@@ -5,9 +5,11 @@ Priority: [H, M , L]
 
 # Todo
 
+* Client - H - it is not reliable to store the user information on AuthContext, replace storeUserAndToken with storeUserIDandToken
 * Client - H - Add the edit profile page
 * Client - H - Add a create an article button to the MyArticles page
 * Client - M - Sign in of NavBar should redirect to the page where user was when clicking on login
+* Client - M - AuthContext does not pass the authenticated state quick enough
 * Client - L - Edit the Article PublishMenu to look better
 * Client - L - Replace every input with a labeled input that can also show errors
 * Client - L - Make the forms to show the generic error message if there is one
