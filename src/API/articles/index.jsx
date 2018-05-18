@@ -29,7 +29,7 @@ export async function getUserArticles() {
     .catch(catcher)
 }
 
-export async function saveArticle(article) {
+export async function saveArticle(article = {}) {
   const body = JSON.stringify({
     ...article,
     mainImg:
