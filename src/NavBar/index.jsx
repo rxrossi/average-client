@@ -49,7 +49,7 @@ const Nav = styled.nav`
   width: 100%;
   height: 60px;
   display: inline-grid;
-  grid-template-columns: 100px auto 50px;
+  grid-template-columns: 100px auto min-content;
   align-items: center;
 `
 
