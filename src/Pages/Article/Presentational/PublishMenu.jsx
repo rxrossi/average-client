@@ -40,7 +40,7 @@ const DropDown = styled(DropDownBase)`
   width: 280px;
   right: +120px;
   left: auto;
-  & > ul {
+  & > ul {80px 150px;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -53,6 +53,7 @@ const DropDown = styled(DropDownBase)`
 
 const MainBtn = styled.button`
   border: 0;
+  width: 100px;
   background-color: ${white};
   padding: 2px 10px;
   box-shadow: 0 0 2px #999;

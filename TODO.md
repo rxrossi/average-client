@@ -3,8 +3,7 @@ Priority: [H, M , L]
 
 # Doing
 
-* Client - H - Implement Wrapper Component to handle auth
-* Client - H - Make sure SignIn and SignOut sens the values correctly to AuthComponent
+* Client - H - Add the publish menu
 
 # Todo
 
@@ -13,7 +12,10 @@ Priority: [H, M , L]
 
 # Done
 
+* Client - H - Nav complement must use min-content on css and the buttons should have theirs width fixed
 * Client - H - Implement /article/read
 * Client - M - create a flowtype of Article and User
 * Client - H - Implement SignIn Component
 * Client - H - Implement SignUp Component
+* Client - H - Implement Wrapper Component to handle auth
+* Client - H - Make sure SignIn and SignOut sends the values correctly to AuthComponent

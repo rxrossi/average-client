@@ -10,6 +10,7 @@ import DraftJSC from '../../../SharedReactComponents/DrafJSC'
 
 const Button = styled.button`
   border: 0;
+  width: 130px;
   background-color: ${white};
   padding: 2px 10px;
   box-shadow: 0 0 2px #999;
@@ -21,7 +22,7 @@ const Button = styled.button`
 const Wrapper = styled.div`
   display: inline-grid;
   text-align: right;
-  grid-template-columns: 80px 150px;
+  grid-template-columns: min-content min-content;
 `
 
 const NavComplement = ({ toggleReading, reading }) => (
