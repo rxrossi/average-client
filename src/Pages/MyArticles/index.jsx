@@ -17,7 +17,6 @@ class Home extends React.Component<Props, State> {
 
   async componentDidMount() {
     const { response } = await getUserArticles()
-    console.log('myarticles', response)
     if (response) {
       this.setState({
         articles: response.articles
