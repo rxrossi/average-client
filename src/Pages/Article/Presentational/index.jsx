@@ -6,7 +6,6 @@ import { white } from '../../../colors'
 import DraftJSC from '../../../SharedReactComponents/DrafJSC'
 
 // TODO: take care of handleSave
-// TODO: take care of reader prop
 
 const Button = styled.button`
   border: 0;
@@ -25,19 +24,24 @@ const Wrapper = styled.div`
   grid-template-columns: min-content min-content;
 `
 
-const NavComplement = ({ toggleReading, reading }) => (
+const NavComplement = ({ toggleReading, reading, article, handleChange }) => (
   <Wrapper>
-    <div>{!reading && <PublishMenu />}</div>
+    <div>
+      {!reading && (
+        <PublishMenu article={article} handleChange={handleChange} />
+      )}
+    </div>
     <Button onClick={toggleReading}>
       {reading ? 'Edit' : 'Switch to preview'}
     </Button>
   </Wrapper>
 )
 
-const Home = props => {
-  const articleContent = props.article && props.article.content
-  // console.log(props)
-  if (articleContent) {
+const Presentational = props => {
+  if (props.article) {
+    var { content, ...rest } = props.article
+  }
+  if (content) {
     return (
       <div>
         <NavBar>
@@ -45,15 +49,15 @@ const Home = props => {
             <NavComplement
               toggleReading={props.toggleReading}
               reading={props.reading}
+              article={rest}
+              handleChange={props.handleChange}
             />
           )}
         </NavBar>
         <DraftJSC
           reader={props.reading}
-          article={articleContent}
-          // TODO: remember that the handleSave bellow will receive only the content
-          // does the content comes already stringified? as far as I can remember, yes
-          handleSave={() => {}}
+          article={content}
+          handleSave={content => props.handleChange('content', content)}
         />
       </div>
     )
@@ -67,4 +71,4 @@ const Home = props => {
     </div>
   )
 }
-export default Home
+export default Presentational

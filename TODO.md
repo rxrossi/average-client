@@ -3,15 +3,17 @@ Priority: [H, M , L]
 
 # Doing
 
-* Client - H - Add the publish menu
-
 # Todo
 
+* Client - M - Sign in of NavBar should redirect to the page where user was when clicking on login
 * Client - L - Covert ArticleCard and ListOfArticleCard to styledComponents
 * Client - L - Remove SharedReactComponents DraftJSComponent (the creation is a mistake, can't delete because somehow it is in use)
 
 # Done
 
+* Client - H - Add saving
+* Client - H - fix canEdit(logic) and reading(must always start with true)
+* Client - H - Add the publish menu
 * Client - H - Nav complement must use min-content on css and the buttons should have theirs width fixed
 * Client - H - Implement /article/read
 * Client - M - create a flowtype of Article and User

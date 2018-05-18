@@ -28,3 +28,40 @@ export async function getUserArticles() {
     .then(getJson)
     .catch(catcher)
 }
+
+export async function saveArticle(article) {
+  const body = JSON.stringify({
+    ...article,
+    mainImg:
+      article.mainImg ||
+      'https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+  })
+
+  let response
+
+  if (article.link) {
+    response = await fetch(API_ADDRESS + `/articles/${article.link}`, {
+      method: 'PUT',
+      body,
+      headers: {
+        ...headers,
+        authorization: getToken()
+      }
+    })
+      .then(res => res.json())
+      .catch(catcher)
+  } else {
+    response = await fetch(API_ADDRESS + '/articles', {
+      method: 'POST',
+      body,
+      headers: {
+        ...headers,
+        authorization: getToken()
+      }
+    })
+      .then(res => res.json())
+      .catch(catcher)
+  }
+
+  return response
+}

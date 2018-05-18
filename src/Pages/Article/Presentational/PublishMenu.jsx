@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import Wrapper from '../../../UtilityComponents/HandleClickOutside'
 import { white } from '../../../colors'
 import DropDownBase from '../../../StyledComponents/DropDownOfMenu'
+import Input from '../../../StyledComponents/LabeledInput'
 
-const Form = () => <p>Form</p>
-
+// TODO: add flow
 class PublishMenu extends React.Component<Props, State> {
   state = {
     open: false
@@ -26,7 +26,10 @@ class PublishMenu extends React.Component<Props, State> {
         <MainBtn onClick={this.toggleOpen}>Publish \/</MainBtn>
         {this.state.open && (
           <DropDown>
-            <Form />
+            <Form
+              article={this.props.article}
+              handleChange={this.props.handleChange}
+            />
           </DropDown>
         )}
       </Wrapper>
@@ -62,3 +65,55 @@ const MainBtn = styled.button`
     box-shadow: 0 0 4px #777;
   }
 `
+
+const Form = ({
+  article: { tags, published, mainImg, description, title, link },
+  handleChange,
+  toggleDetailsEditor
+}) => {
+  // TODO: add image selector
+  return (
+    <div>
+      <Input
+        label="Title"
+        name="title"
+        type="text"
+        defaultValue={title || ''}
+        onChange={onChange(handleChange)}
+      />
+      <Input
+        label="Description"
+        name="description"
+        type="textarea"
+        defaultValue={description || ''}
+        onChange={onChange(handleChange)}
+      />
+      <Input
+        label="Link"
+        name="link"
+        type="text"
+        defaultValue={link || ''}
+        onChange={onChange(handleChange)}
+      />
+      <Input
+        label="Tags"
+        name="tags"
+        type="text"
+        defaultValue={tags || ''}
+        onChange={onChange(handleChange)}
+      />
+      <Input
+        label="Publish?"
+        name="published"
+        type="checkbox"
+        defaultChecked={published}
+        onChange={onChange(handleChange)}
+      />
+    </div>
+  )
+}
+
+const onChange = fn => e => {
+  const { target: { value, name } } = e
+  fn(name, value)
+}
