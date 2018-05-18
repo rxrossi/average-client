@@ -18,18 +18,13 @@ export default class Auth extends React.Component {
   }
 
   storeUserAndToken = ({ user, token }) => {
-    this.setState({ authenticated: true, user, token }, () =>
-      console.log(this.state)
-    )
+    this.setState({ authenticated: true, user, token })
     localStorage.setItem('user', JSON.stringify(user))
     localStorage.setItem('token', JSON.stringify(token))
   }
 
   removeUserAndToken = () => {
-    this.setState(
-      { authenticated: false, user: undefined, token: undefined },
-      () => console.log(this.state)
-    )
+    this.setState({ authenticated: false, user: undefined, token: undefined })
     localStorage.removeItem('user')
     localStorage.removeItem('token')
   }
