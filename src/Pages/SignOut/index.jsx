@@ -2,17 +2,17 @@ import React from 'react'
 import NavBar from '../../NavBar'
 import { AuthContext } from '../../AuthComponent'
 
-const SignOut = ({ removeUserAndToken }) => (
+const SignOut = ({ removeUserIDAndToken }) => (
   <div>
     <NavBar />
-    <button onClick={removeUserAndToken}>Sign out</button>
+    <button onClick={removeUserIDAndToken}>Sign out</button>
   </div>
 )
 
 export default () => (
   <AuthContext.Consumer>
-    {({ removeUserAndToken }) => (
-      <SignOut removeUserAndToken={removeUserAndToken} />
+    {({ removeUserIDAndToken }) => (
+      <SignOut removeUserIDAndToken={removeUserIDAndToken} />
     )}
   </AuthContext.Consumer>
 )

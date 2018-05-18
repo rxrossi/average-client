@@ -16,14 +16,14 @@ class Article extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    const canEdit = checkIfCanEdit(prevState.article, nextProps.user)
+    const canEdit = checkIfCanEdit(prevState.article, nextProps.userID)
     return { canEdit }
   }
 
   async componentDidMount() {
     const link = this.props.location.pathname.split('/').reverse()[0]
     const { response } = await getByLink(link)
-    const canEdit = checkIfCanEdit(response.article, this.props.user)
+    const canEdit = checkIfCanEdit(response.article, this.props.userID)
     this.setState({
       article: response && response.article,
       loading: false,
@@ -81,15 +81,15 @@ class Article extends React.Component {
 // export default Article
 export default props => (
   <AuthContext.Consumer>
-    {({ user }) => <Article user={user} {...props} />}
+    {({ userID }) => <Article userID={userID} {...props} />}
   </AuthContext.Consumer>
 )
 
-function checkIfCanEdit(article, user) {
-  if (!article || !user) {
+function checkIfCanEdit(article, userID) {
+  if (!article || !userID) {
     return false
   }
-  return article.author.id === user.id
+  return article.author.id === userID
 }
 
 let inDebounce

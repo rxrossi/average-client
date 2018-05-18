@@ -7,45 +7,40 @@ export default class Auth extends React.Component {
     super(props)
 
     try {
-      var user = JSON.parse(localStorage.getItem('user'))
+      var userID = JSON.parse(localStorage.getItem('userID'))
       var token = JSON.parse(localStorage.getItem('token'))
     } catch (e) {}
 
     this.state = {
       authenticated: token ? true : false,
-      user,
+      userID,
       token
     }
   }
 
-  storeUserAndToken = ({ user, token }) => {
-    this.setState({ authenticated: true, user, token })
-    localStorage.setItem('user', JSON.stringify(user))
+  storeUserIDAndToken = ({ userID, token }) => {
+    this.setState({ authenticated: true, userID, token })
+    localStorage.setItem('userID', JSON.stringify(userID))
     localStorage.setItem('token', JSON.stringify(token))
   }
 
-  storeUser = ({ user, token }) => {
-    this.setState({ user })
-    localStorage.setItem('user', JSON.stringify(user))
-  }
-
-  removeUserAndToken = () => {
-    this.setState({ authenticated: false, user: undefined, token: undefined })
-    localStorage.removeItem('user')
+  removeUserIDAndToken = () => {
+    this.setState({ authenticated: false, userID: undefined, token: undefined })
+    localStorage.removeItem('userID')
     localStorage.removeItem('token')
   }
 
   render() {
-    const { authenticated, user, token } = this.state
+    const { authenticated, userID, token } = this.state
     return (
       <AuthContext.Provider
         value={{
           authenticated,
-          user,
+          userID,
           token,
           storeUser: this.storeUser,
-          storeUserAndToken: this.storeUserAndToken,
-          removeUserAndToken: this.removeUserAndToken
+          storeUserIDAndToken: this.storeUserIDAndToken,
+          removeUserIDAndToken: this.removeUserIDAndToken
         }}
       >
         {this.props.children}

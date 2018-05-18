@@ -8,7 +8,7 @@ import BaseLink from '../../../StyledComponents/BaseLink'
 import { AuthContext } from '../../../AuthComponent'
 
 type Props = {
-  removeUserAndToken: Function
+  removeUserIDAndToken: Function
 }
 
 type State = {
@@ -43,7 +43,7 @@ class UserMenu extends React.Component<Props, State> {
                 <Link to="/myarticles">My articles</Link>
               </li>
               <li>
-                <button onClick={this.props.removeUserAndToken}>
+                <button onClick={this.props.removeUserIDAndToken}>
                   Sign out
                 </button>
               </li>
@@ -57,8 +57,8 @@ class UserMenu extends React.Component<Props, State> {
 
 export default () => (
   <AuthContext.Consumer>
-    {({ removeUserAndToken }) => (
-      <UserMenu removeUserAndToken={removeUserAndToken} />
+    {({ removeUserIDAndToken }) => (
+      <UserMenu removeUserIDAndToken={removeUserIDAndToken} />
     )}
   </AuthContext.Consumer>
 )

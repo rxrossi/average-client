@@ -5,18 +5,19 @@ Priority: [H, M , L]
 
 # Todo
 
-* Client - H - it is not reliable to store the user information on AuthContext, replace storeUserAndToken with storeUserIDandToken
 * Client - H - Add the edit profile page
 * Client - H - Add a create an article button to the MyArticles page
 * Client - M - Sign in of NavBar should redirect to the page where user was when clicking on login
 * Client - L - Edit the Article PublishMenu to look better
 * Client - L - Replace every input with a labeled input that can also show errors
 * Client - L - Make the forms to show the generic error message if there is one
+* Client - L - Make the EditProfile look better
 * Client - L - Covert ArticleCard and ListOfArticleCard to styledComponents
 * Client - L - Remove SharedReactComponents DraftJSComponent (the creation is a mistake, can't delete because somehow it is in use)
 
 # Done
 
+* Client - H - it is not reliable to store the user information on AuthContext, replace storeUserAndToken with storeUserIDandToken ( edit Article component to work with this change)
 * Client - M - AuthContext does not pass the authenticated state quick enough (now it reads localStorage on constructor instead of at componentDidMount)
 * Client - H - Add saving
 * Client - H - fix canEdit(logic) and reading(must always start with true)

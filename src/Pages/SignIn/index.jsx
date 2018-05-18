@@ -24,8 +24,8 @@ class SignIn extends React.Component {
       },
       () => {
         if (response && response.token) {
-          this.props.storeUserAndToken({
-            user: response.user,
+          this.props.storeUserIDAndToken({
+            userID: response.user.id,
             token: response.token
           })
         }
@@ -54,8 +54,8 @@ class SignIn extends React.Component {
 
 export default () => (
   <AuthContext.Consumer>
-    {({ storeUserAndToken }) => (
-      <SignIn storeUserAndToken={storeUserAndToken} />
+    {({ storeUserIDAndToken }) => (
+      <SignIn storeUserIDAndToken={storeUserIDAndToken} />
     )}
   </AuthContext.Consumer>
 )
