@@ -9,19 +9,21 @@ type Props = {
   children: React.ComponentType<{}>
 }
 
-const NavBar = ({ children, authenticated }: Props) => (
-  <Nav>
-    <HomeLink to="/">Average</HomeLink>
-    <ItemAlignRight>{children}</ItemAlignRight>
-    <ItemAlignRight>
-      <UserMenu authenticated={authenticated} />
-    </ItemAlignRight>
-  </Nav>
-)
+const NavBar = ({ children, authenticated }: Props) => {
+  return (
+    <Nav>
+      <HomeLink to="/">Average</HomeLink>
+      <ItemAlignRight>{children}</ItemAlignRight>
+      <ItemAlignRight>
+        <UserMenu authenticated={authenticated} />
+      </ItemAlignRight>
+    </Nav>
+  )
+}
 
-export default () => (
+export default ({ children }) => (
   <AuthContext.Consumer>
-    {({ authenticated, children }) => (
+    {({ authenticated }) => (
       <NavBar authenticated={authenticated}>{children}</NavBar>
     )}
   </AuthContext.Consumer>
@@ -53,4 +55,5 @@ const Nav = styled.nav`
 
 const ItemAlignRight = styled.div`
   text-align: right;
+  margin-left: 15px;
 `

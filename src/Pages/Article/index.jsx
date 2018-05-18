@@ -9,7 +9,9 @@ import { getByLink } from '../../API/articles'
 class Article extends React.Component {
   state = {
     article: undefined,
-    loading: true
+    loading: true,
+    canEdit: false,
+    reading: true
   }
 
   async componentDidMount() {
@@ -17,15 +19,31 @@ class Article extends React.Component {
     const { response } = await getByLink(link)
     this.setState({
       article: response && response.article,
-      loading: false
+      loading: false,
+      canEdit: true // article.id === this.props.user.id
     })
+  }
+
+  toggleReading = () => {
+    const { reading } = this.state
+    this.setState({ reading: !reading })
   }
 
   render() {
     if (this.state.loading) {
       return <Loading />
     }
-    return <Presentational article={this.state.article} />
+
+    const { canEdit, reading } = this.state
+
+    return (
+      <Presentational
+        article={this.state.article}
+        canEdit={canEdit}
+        reading={reading}
+        toggleReading={this.toggleReading}
+      />
+    )
   }
 }
 
