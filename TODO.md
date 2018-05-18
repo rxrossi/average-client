@@ -9,7 +9,6 @@ Priority: [H, M , L]
 * Client - H - Add the edit profile page
 * Client - H - Add a create an article button to the MyArticles page
 * Client - M - Sign in of NavBar should redirect to the page where user was when clicking on login
-* Client - M - AuthContext does not pass the authenticated state quick enough
 * Client - L - Edit the Article PublishMenu to look better
 * Client - L - Replace every input with a labeled input that can also show errors
 * Client - L - Make the forms to show the generic error message if there is one
@@ -18,6 +17,7 @@ Priority: [H, M , L]
 
 # Done
 
+* Client - M - AuthContext does not pass the authenticated state quick enough (now it reads localStorage on constructor instead of at componentDidMount)
 * Client - H - Add saving
 * Client - H - fix canEdit(logic) and reading(must always start with true)
 * Client - H - Add the publish menu

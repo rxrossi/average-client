@@ -3,18 +3,19 @@ import React from 'react'
 export const AuthContext = React.createContext()
 
 export default class Auth extends React.Component {
-  state = {
-    authenticated: false
-  }
+  constructor(props) {
+    super(props)
 
-  componentDidMount() {
     try {
-      const user = JSON.parse(localStorage.getItem('user'))
-      const token = JSON.parse(localStorage.getItem('token'))
-      if (user && token) {
-        this.setState({ authenticated: true, user, token })
-      }
+      var user = JSON.parse(localStorage.getItem('user'))
+      var token = JSON.parse(localStorage.getItem('token'))
     } catch (e) {}
+
+    this.state = {
+      authenticated: token ? true : false,
+      user,
+      token
+    }
   }
 
   storeUserAndToken = ({ user, token }) => {
