@@ -20,7 +20,8 @@ class Article extends React.Component {
     this.setState({
       article: response && response.article,
       loading: false,
-      canEdit: true // article.id === this.props.user.id
+      canEdit: true, // article.id === this.props.user.id
+      reading: false
     })
   }
 

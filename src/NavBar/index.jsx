@@ -49,11 +49,10 @@ const Nav = styled.nav`
   width: 100%;
   height: 60px;
   display: inline-grid;
-  grid-template-columns: 100px auto min-content;
+  grid-template-columns: 100px auto 50px;
   align-items: center;
 `
 
 const ItemAlignRight = styled.div`
   text-align: right;
-  margin-left: 15px;
 `

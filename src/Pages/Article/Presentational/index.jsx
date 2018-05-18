@@ -1,14 +1,36 @@
 import React from 'react'
+import styled from 'styled-components'
 import NavBar from '../../../NavBar'
+import PublishMenu from './PublishMenu'
+import { white } from '../../../colors'
 import DraftJSC from '../../../SharedReactComponents/DrafJSC'
 
 // TODO: take care of handleSave
 // TODO: take care of reader prop
 
+const Button = styled.button`
+  border: 0;
+  background-color: ${white};
+  padding: 2px 10px;
+  box-shadow: 0 0 2px #999;
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 4px #777;
+  }
+`
+const Wrapper = styled.div`
+  display: inline-grid;
+  text-align: right;
+  grid-template-columns: 80px 150px;
+`
+
 const NavComplement = ({ toggleReading, reading }) => (
-  <button onClick={toggleReading}>
-    {reading ? 'Edit' : 'Switch to preview'}
-  </button>
+  <Wrapper>
+    <div>{!reading && <PublishMenu />}</div>
+    <Button onClick={toggleReading}>
+      {reading ? 'Edit' : 'Switch to preview'}
+    </Button>
+  </Wrapper>
 )
 
 const Home = props => {
@@ -28,6 +50,8 @@ const Home = props => {
         <DraftJSC
           reader={props.reading}
           article={articleContent}
+          // TODO: remember that the handleSave bellow will receive only the content
+          // does the content comes already stringified? as far as I can remember, yes
           handleSave={() => {}}
         />
       </div>

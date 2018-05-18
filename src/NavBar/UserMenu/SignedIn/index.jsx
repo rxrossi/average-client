@@ -64,6 +64,7 @@ export default () => (
 )
 
 const DropDown = styled(DropDownBase)`
+  width: 120px;
   & > ul {
     list-style-type: none;
     margin: 0;
