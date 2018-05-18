@@ -79,6 +79,7 @@ const DropDown = styled(DropDownBase)`
 const MainBtn = styled.button`
   border-radius: 50%;
   border: 0;
+  margin: 0 15px;
   width: 32px;
   height: 32px;
   box-shadow: 0 0 2px #999;
