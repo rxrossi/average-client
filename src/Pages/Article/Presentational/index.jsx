@@ -46,7 +46,7 @@ const Presentational = props => {
           {props.canEdit && (
             <NavComplement
               toggleReading={props.toggleReading}
-              reading={content ? props.reading : false}
+              reading={props.reading}
               article={rest}
               handleChange={props.handleChange}
             />

@@ -27,11 +27,14 @@ class Article extends React.Component {
     this.setState({
       article: response && response.article,
       loading: false,
-      canEdit
+      canEdit,
+      reading:
+        response && response.article && !response.article.content ? false : true
     })
   }
 
   componentWillUnmount() {
+    clearTimeout(inDebounce)
     saveArticle(this.state.article)
   }
 

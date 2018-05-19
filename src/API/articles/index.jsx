@@ -68,3 +68,13 @@ export async function saveArticle(article) {
 
   return response
 }
+
+export async function deleteArticleByLink(link) {
+  return fetch(API_ADDRESS + `/articles/${link}`, {
+    method: 'DELETE',
+    headers: {
+      ...headers,
+      authorization: getToken()
+    }
+  }).then(getJson)
+}

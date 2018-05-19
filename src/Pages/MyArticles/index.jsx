@@ -1,18 +1,23 @@
 // @flow
 import React from 'react'
 import Presentational from './Presentational'
-import { getUserArticles } from '../../API/articles'
+import { Redirect } from 'react-router-dom'
+import { saveArticle } from '../../API/articles'
+import { getUserArticles, deleteArticleByLink } from '../../API/articles'
 import * as types from '../../flowTypes'
+const uuid4 = require('uuid/v4')
 
 type Props = {}
 
 type State = {
-  articles: Array<types.article>
+  articles: Array<types.article>,
+  redirectTo: ?string
 }
 
 class Home extends React.Component<Props, State> {
   state = {
-    articles: []
+    articles: [],
+    redirectTo: undefined
   }
 
   async componentDidMount() {
@@ -24,8 +29,44 @@ class Home extends React.Component<Props, State> {
     }
   }
 
+  handleDelete = async (link: string) => {
+    await deleteArticleByLink(link)
+    const { response } = await getUserArticles()
+    if (response) {
+      this.setState({
+        articles: response.articles
+      })
+    }
+  }
+
+  handleCreate = async () => {
+    const newArticleLink = uuid4()
+
+    const article = {
+      link: newArticleLink
+    }
+
+    await saveArticle(article)
+
+    const newUrl = `/article/${newArticleLink}`
+
+    this.setState({ redirectTo: newUrl })
+  }
+
   render() {
-    return <Presentational articles={this.state.articles} />
+    const { redirectTo } = this.state
+
+    if (redirectTo) {
+      return <Redirect to={redirectTo} />
+    }
+
+    return (
+      <Presentational
+        articles={this.state.articles}
+        handleDelete={this.handleDelete}
+        handleCreate={this.handleCreate}
+      />
+    )
   }
 }
 

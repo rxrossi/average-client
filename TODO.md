@@ -3,8 +3,6 @@ Priority: [H, M , L]
 
 # Doing
 
-* Client - H - Implement delete article
-
 # Todo
 
 * Client - M - Sign in of NavBar should redirect to the page where user was when clicking on login
@@ -13,10 +11,11 @@ Priority: [H, M , L]
 * Client - L - Make the forms to show the generic error message if there is one
 * Client - L - Make the EditProfile look better
 * Client - L - Covert ArticleCard and ListOfArticleCard to styledComponents
-* Client - L - Remove SharedReactComponents DraftJSComponent (the creation is a mistake, can't delete because somehow it is in use)
 
 # Done
 
+* Client - H - Upon creation of new article, entering to edit will reload the page
+* Client - H - Implement delete article
 * Client - H - Add a create an article button to the MyArticles page
 * Client - H - Add the edit profile page
 * Client - H - it is not reliable to store the user information on AuthContext, replace storeUserAndToken with storeUserIDandToken ( edit Article component to work with this change)
