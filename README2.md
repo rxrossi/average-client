@@ -3,7 +3,7 @@
 The client of a clone of [Medium](http://www.medium.com)
 for the server check [here](https://github.com/rxrossi/average-server)
 
-## Tech
+## Stack
 
 Bootstrapped with Create-react-app, React 16.3, [styled-components](https://github.com/styled-components)
 
@@ -14,7 +14,6 @@ Users can sign up, create and delete articles, for editing article it uses a com
 Guests can read only sign up and read articles
 
 This is a work-in-progress, the project will have integration testing as seen on my other project [FV-client](https://github.com/rxrossi/fv-client) and a good use of [storybook](https://github.com/storybooks/storybook), for more detailed information about progress, check TODO.md
-<<<<<<< HEAD
 
 ## Running it locally
 
@@ -22,5 +21,3 @@ This is a work-in-progress, the project will have integration testing as seen on
 * edit the API address on src/config.js
 * yarn
 * yarn start
-=======
->>>>>>> 9f92eeb9f35d68bba2cc607184bcd73c268c5bd0

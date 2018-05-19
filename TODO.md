@@ -5,12 +5,20 @@ Priority: [H, M , L]
 
 # Todo
 
+Fase 1
+
 * Client - M - Sign in of NavBar should redirect to the page where user was when clicking on login
 * Client - L - Edit the Article PublishMenu to look better
 * Client - L - Replace every input with a labeled input that can also show errors
 * Client - L - Make the forms to show the generic error message if there is one
 * Client - L - Make the EditProfile look better
 * Client - L - Covert ArticleCard and ListOfArticleCard to styledComponents
+
+---
+
+Fase 2
+
+* Client - H - Work no a comments section
 
 # Done
 
