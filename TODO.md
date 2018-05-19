@@ -3,10 +3,10 @@ Priority: [H, M , L]
 
 # Doing
 
+* Client - H - Implement delete article
+
 # Todo
 
-* Client - H - Add the edit profile page
-* Client - H - Add a create an article button to the MyArticles page
 * Client - M - Sign in of NavBar should redirect to the page where user was when clicking on login
 * Client - L - Edit the Article PublishMenu to look better
 * Client - L - Replace every input with a labeled input that can also show errors
@@ -17,6 +17,8 @@ Priority: [H, M , L]
 
 # Done
 
+* Client - H - Add a create an article button to the MyArticles page
+* Client - H - Add the edit profile page
 * Client - H - it is not reliable to store the user information on AuthContext, replace storeUserAndToken with storeUserIDandToken ( edit Article component to work with this change)
 * Client - M - AuthContext does not pass the authenticated state quick enough (now it reads localStorage on constructor instead of at componentDidMount)
 * Client - H - Add saving

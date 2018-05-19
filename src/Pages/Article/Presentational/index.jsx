@@ -40,22 +40,20 @@ const NavComplement = ({ toggleReading, reading, article, handleChange }) => (
 const Presentational = props => {
   if (props.article) {
     var { content, ...rest } = props.article
-  }
-  if (content) {
     return (
       <div>
         <NavBar>
           {props.canEdit && (
             <NavComplement
               toggleReading={props.toggleReading}
-              reading={props.reading}
+              reading={content ? props.reading : false}
               article={rest}
               handleChange={props.handleChange}
             />
           )}
         </NavBar>
         <DraftJSC
-          reader={props.reading}
+          reader={content ? props.reading : false}
           article={content}
           handleSave={content => props.handleChange('content', content)}
         />

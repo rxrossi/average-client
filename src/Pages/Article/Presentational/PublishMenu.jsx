@@ -114,6 +114,6 @@ const Form = ({
 }
 
 const onChange = fn => e => {
-  const { target: { value, name } } = e
-  fn(name, value)
+  const { target: { value, name, type, checked } } = e
+  fn(name, type === 'checkbox' ? checked : value)
 }

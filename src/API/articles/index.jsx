@@ -29,7 +29,10 @@ export async function getUserArticles() {
     .catch(catcher)
 }
 
-export async function saveArticle(article = {}) {
+export async function saveArticle(article) {
+  if (!article) {
+    return
+  }
   const body = JSON.stringify({
     ...article,
     mainImg:
@@ -39,7 +42,7 @@ export async function saveArticle(article = {}) {
 
   let response
 
-  if (article.link) {
+  if (article.content) {
     response = await fetch(API_ADDRESS + `/articles/${article.link}`, {
       method: 'PUT',
       body,
