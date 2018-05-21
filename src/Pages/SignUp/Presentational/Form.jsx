@@ -1,10 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 import LabeledInput from '../../../StyledComponents/LabeledInput'
 import Wrapper from '../../../StyledComponents/FormWrapperCenter'
 import Button from '../../../StyledComponents/Button'
-
-const ErrorFeedBack = styled.p``
+import ErrorFeedBack from '../../../StyledComponents/FormErrorFeedBack'
 
 export default ({ handleChange, handleSubmit, fields, errors }) => (
   <Wrapper onSubmit={handleSubmit}>
@@ -24,7 +22,6 @@ export default ({ handleChange, handleSubmit, fields, errors }) => (
       error={errors.fields && errors.fields.password}
       onChange={handleChange}
     />
-
     <LabeledInput
       label="Confirm Password"
       name="confirmPassword"
@@ -33,8 +30,7 @@ export default ({ handleChange, handleSubmit, fields, errors }) => (
       error={errors.fields && errors.fields.confirmPassword}
       onChange={handleChange}
     />
-
-    {errors.message && <ErrorFeedBack message={errors.message} />}
+    {errors.message && <ErrorFeedBack>{errors.message}</ErrorFeedBack>}
     <Button type="submit">Sign Up</Button>
   </Wrapper>
 )

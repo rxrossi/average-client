@@ -37,7 +37,7 @@ class SignUp extends React.Component {
     const { from } = (this.props.location && this.props.location.state) || {
       from: { pathname: '/' }
     }
-    const { redirectToReferrer, errors } = this.state
+    const { redirectToReferrer, errors, fields } = this.state
 
     if (redirectToReferrer) {
       return <Redirect to={from} />
@@ -46,7 +46,11 @@ class SignUp extends React.Component {
     return (
       <div>
         <NavBar />
-        <ControlledForm onSubmit={this.handleSubmit} errors={errors} />
+        <ControlledForm
+          fields={fields}
+          onSubmit={this.handleSubmit}
+          errors={errors}
+        />
       </div>
     )
   }
