@@ -28,9 +28,10 @@ storiesOf('StyledComponents', module)
   .add('LabeledInput', () => (
     <div>
       <p>Empty:</p>
-      <LabeledInput label="Name" name="name" type="text" />
+      <LabeledInput label="Name" name="name" type="text" onChange={() => {}} />
       <p>With value</p>
       <LabeledInput
+        onChange={() => {}}
         label="Name"
         name="name"
         type="text"
@@ -39,6 +40,7 @@ storiesOf('StyledComponents', module)
 
       <p>With error:</p>
       <LabeledInput
+        onChange={() => {}}
         label="Name"
         name="name"
         type="text"
@@ -48,6 +50,7 @@ storiesOf('StyledComponents', module)
 
       <p>With error that is displayed even after changing the value:</p>
       <LabeledInput
+        onChange={() => {}}
         label="Name"
         name="name"
         type="text"
@@ -57,10 +60,16 @@ storiesOf('StyledComponents', module)
       />
 
       <p>checkbox</p>
-      <LabeledInput label="Publish" name="publish" type="checkbox" />
+      <LabeledInput
+        label="Publish"
+        name="publish"
+        type="checkbox"
+        onChange={() => {}}
+      />
 
       <p>checkbox checked</p>
       <LabeledInput
+        onChange={() => {}}
         label="Publish"
         name="publish"
         type="checkbox"
