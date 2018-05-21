@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import LabeledInput from '../../../StyledComponents/LabeledInput'
+import Wrapper from '../../../StyledComponents/FormWrapperCenter'
+import Button from '../../../StyledComponents/Button'
 
-const Button = styled.button``
-const Wrapper = styled.form``
 const ErrorFeedBack = styled.p``
-const CInput = styled.input``
 
 export default ({ handleChange, handleSubmit, fields, errors }) => (
   <Wrapper onSubmit={handleSubmit}>
-    <CInput
+    <LabeledInput
       label="Email"
       name="email"
       type="email"
@@ -16,7 +16,7 @@ export default ({ handleChange, handleSubmit, fields, errors }) => (
       error={errors.fields && errors.fields.email}
       onChange={handleChange}
     />
-    <CInput
+    <LabeledInput
       label="Password"
       name="password"
       type="password"

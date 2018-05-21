@@ -3,7 +3,7 @@ Priority: [H, M , L]
 
 # Doing
 
-* Client - H - style SignIn and SignOut
+* Client - H - style SignIn and SignUp
 
 # Todo
 
@@ -14,6 +14,7 @@ Fase 1
 * Client - L - Make the forms to show the generic error message if there is one
 * Client - L - Make the EditProfile look better
 * Client - L - Covert ArticleCard and ListOfArticleCard to styledComponents
+* Client - L - add to storybook the SignIn and SignUp components
 
 ---
 

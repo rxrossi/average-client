@@ -30,7 +30,6 @@ class LabeledInput extends React.Component<Props, State> {
   handleChange = (e: SyntheticInputEvent<>) => {
     const { target: { value, type } } = e
     const { checked } = this.state
-    console.log({ checked: !checked })
 
     if (type === 'checkbox') {
       this.setState({
