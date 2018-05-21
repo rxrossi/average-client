@@ -73,6 +73,11 @@ const Form = ({
   toggleDetailsEditor
 }) => {
   // TODO: add image selector
+  // TODO: cannot edit link directly, link is used for saving
+  // change the save article to save based on id,
+  // or do a trick using another name, both will need to change the function and the server
+  // but the first one is wiser
+  // removing the input for now
   return (
     <div>
       <Input
@@ -87,13 +92,6 @@ const Form = ({
         name="description"
         type="textarea"
         defaultValue={description || ''}
-        onChange={onChange(handleChange)}
-      />
-      <Input
-        label="Link"
-        name="link"
-        type="text"
-        defaultValue={link || ''}
         onChange={onChange(handleChange)}
       />
       <Input
@@ -116,5 +114,10 @@ const Form = ({
 
 const onChange = fn => e => {
   const { target: { value, name, type, checked } } = e
-  fn(name, type === 'checkbox' ? checked : value)
+  if (type === 'checkbox') {
+    console.log('checkbox', value, checked)
+    fn(value, checked)
+  } else {
+    fn(name, value)
+  }
 }

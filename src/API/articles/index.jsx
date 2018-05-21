@@ -43,6 +43,7 @@ export async function saveArticle(article) {
   let response
 
   if (article.content) {
+    console.log(article.link)
     response = await fetch(API_ADDRESS + `/articles/${article.link}`, {
       method: 'PUT',
       body,

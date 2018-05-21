@@ -57,11 +57,14 @@ storiesOf('StyledComponents', module)
       />
 
       <p>checkbox</p>
+      <LabeledInput label="Publish" name="publish" type="checkbox" />
+
+      <p>checkbox checked</p>
       <LabeledInput
-        label="Name"
-        name="name"
+        label="Publish"
+        name="publish"
         type="checkbox"
-        defaultValue="Carlos D"
+        defaultChecked={true}
       />
     </div>
   ))
