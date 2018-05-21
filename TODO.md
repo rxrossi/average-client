@@ -3,12 +3,13 @@ Priority: [H, M , L]
 
 # Doing
 
+* Client - H - style SignIn and SignOut
+
 # Todo
 
 Fase 1
 
 * Client - M - Sign in of NavBar should redirect to the page where user was when clicking on login
-* Client - L - Edit the Article PublishMenu to look better
 * Client - L - Replace every input with a labeled input that can also show errors
 * Client - L - Make the forms to show the generic error message if there is one
 * Client - L - Make the EditProfile look better
@@ -22,6 +23,7 @@ Fase 2
 
 # Done
 
+* Client - L - Edit the Article PublishMenu to look better
 * Client - H - Upon creation of new article, entering to edit will reload the page
 * Client - H - Implement delete article
 * Client - H - Add a create an article button to the MyArticles page

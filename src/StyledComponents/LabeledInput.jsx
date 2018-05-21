@@ -109,7 +109,7 @@ const Wrapper = styled.div`
   text-align: left;
   display: inline-block;
   align-items: center;
-  width: 250px;
+  width: 500px;
   max-width: 100%;
   margin: 15px 0;
   position: relative;
@@ -149,7 +149,7 @@ const LabelCheckbox = styled.label`
 const Input = styled.input`
   border: 0;
   display: inline-block;
-  width: 200px;
+  width: 100%;
   padding: 8px 0;
   border-bottom: 1px solid ${props => (props.error ? red : softBlue)};
   &:focus {
