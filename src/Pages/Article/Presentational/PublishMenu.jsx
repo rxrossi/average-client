@@ -43,6 +43,7 @@ const DropDown = styled(DropDownBase)`
   width: 280px;
   right: +120px;
   left: auto;
+  background: white;
   & > ul {80px 150px;
     list-style-type: none;
     margin: 0;
