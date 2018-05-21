@@ -35,7 +35,9 @@ export class UserMenu extends React.Component<Props, State> {
     return (
       <Wrapper handleClickOutside={this.close} handleClickInside={() => {}}>
         <MainBtn onClick={this.toggleOpen}>
-          <Img src={this.props.userImage} alt="current user" />
+          {this.props.userImage && (
+            <Img src={this.props.userImage} alt="current user" />
+          )}
         </MainBtn>
         {this.state.open && (
           <DropDown>
@@ -66,12 +68,13 @@ class UserMenuContainer extends React.Component<
   { img?: string }
 > {
   state = {
-    img: ''
+    img: undefined
   }
   async componentDidMount() {
     const { response } = await getMyProfile()
-    console.log(response.user.photo)
-    this.setState({ img: response.user.photo })
+    if (response && response.user && response.user.photo) {
+      this.setState({ img: response.user.photo })
+    }
   }
   render() {
     return (
