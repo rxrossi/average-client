@@ -27,6 +27,14 @@ class LabeledInput extends React.Component<Props, State> {
     checked: this.props.defaultChecked
   }
 
+  static getDerivedStateFromProps(nextProps: Props) {
+    return {
+      value: nextProps.defaultValue,
+      error: nextProps.error,
+      checked: nextProps.defaultChecked
+    }
+  }
+
   handleChange = (e: SyntheticInputEvent<>) => {
     const { target: { value, type } } = e
     const { checked } = this.state
