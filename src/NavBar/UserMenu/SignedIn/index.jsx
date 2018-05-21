@@ -6,16 +6,18 @@ import Wrapper from '../../../UtilityComponents/HandleClickOutside'
 import DropDownBase from '../../../StyledComponents/DropDownOfMenu'
 import BaseLink from '../../../StyledComponents/BaseLink'
 import { AuthContext } from '../../../AuthComponent'
+import { getMyProfile } from '../../../API/user'
 
 type Props = {
-  removeUserIDAndToken: Function
+  removeUserIDAndToken: Function,
+  userImage: ?string
 }
 
 type State = {
   open: boolean
 }
 
-class UserMenu extends React.Component<Props, State> {
+export class UserMenu extends React.Component<Props, State> {
   state = {
     open: false
   }
@@ -32,7 +34,9 @@ class UserMenu extends React.Component<Props, State> {
   render() {
     return (
       <Wrapper handleClickOutside={this.close} handleClickInside={() => {}}>
-        <MainBtn onClick={this.toggleOpen}>U</MainBtn>
+        <MainBtn onClick={this.toggleOpen}>
+          <Img src={this.props.userImage} alt="current user" />
+        </MainBtn>
         {this.state.open && (
           <DropDown>
             <ul>
@@ -55,14 +59,45 @@ class UserMenu extends React.Component<Props, State> {
   }
 }
 
+// make this fetch the image
+
+class UserMenuContainer extends React.Component<
+  { removeUserIDAndToken: Function },
+  { img?: string }
+> {
+  state = {
+    img: ''
+  }
+  async componentDidMount() {
+    const { response } = await getMyProfile()
+    console.log(response.user.photo)
+    this.setState({ img: response.user.photo })
+  }
+  render() {
+    return (
+      <UserMenu
+        userImage={this.state.img}
+        removeUserIDAndToken={this.props.removeUserIDAndToken}
+      />
+    )
+  }
+}
+
 export default () => (
   <AuthContext.Consumer>
     {({ removeUserIDAndToken }) => (
-      <UserMenu removeUserIDAndToken={removeUserIDAndToken} />
+      <UserMenuContainer removeUserIDAndToken={removeUserIDAndToken} />
     )}
   </AuthContext.Consumer>
 )
 
+const Img = styled.img`
+  height: 32px;
+  width: 32px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+`
 const DropDown = styled(DropDownBase)`
   width: 120px;
   & > ul {
@@ -77,15 +112,18 @@ const DropDown = styled(DropDownBase)`
 `
 
 const MainBtn = styled.button`
+  text-align: center;
   border-radius: 50%;
   border: 0;
   margin: 0 15px;
   width: 32px;
   height: 32px;
-  box-shadow: 0 0 2px #999;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 1px 1px 1px #999;
   &:focus {
     outline: 0;
-    box-shadow: 0 0 4px #777;
+    box-shadow: 1px 1px 4px #333;
   }
 `
 
